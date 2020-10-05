@@ -8,7 +8,7 @@ Our team will meet at least twice a week on Monday and Wednesday during class ti
 ## Roles
 Sierra- Square (GitHub Repository)
 
-Cristina- (Machine Learning)
+Cristina- Triangle (Machine Learning)
 
 Catherine- (DataBase)
 
