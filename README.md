@@ -7,7 +7,9 @@ Our team will meet at least twice a week on Monday and Wednesday during class ti
 
 ## Roles
 Sierra- Square (GitHub Repository)
+
 Cristina- (Machine Learning)
+
 Catherine- (DataBase)
 
 ## Project Background
@@ -17,7 +19,11 @@ We are using 10 years of data for analysis in our machine model. We are using we
 ## Resources and Tools
 
 eBird and Air Quality data will be obtained from APIs.
-California weather data will be obtained from a CSV. 
+
+California weather data will be obtained from a CSV.
+
 We we will Jupyter Notebooks for writing our code.
+
 Postgres will be used for the database.
+
 Any further changes and additions will be listed as they are used.
