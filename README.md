@@ -10,7 +10,7 @@ Sierra- Square (GitHub Repository)
 
 Cristina- Triangle (Machine Learning)
 
-Catherine- (DataBase)
+Catherine- Circle (DataBase)
 
 ## Project Background
 
