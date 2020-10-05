@@ -16,6 +16,12 @@ Catherine- Circle (DataBase)
 
 We are using 10 years of data for analysis in our machine model. We are using weather data, eBird data-sepecifically for Owls or Woodpeckers, and air quality data for the state of California. The data will be cleaned so we can use monthly averages for our datasets/analysis.
 
+## Question(s)
+
+Is there a correlation between air quality and owl species presence?
+
+Does air quality impact non-migratory bird populations in California?
+
 ## Resources and Tools
 
 eBird and Air Quality data will be obtained from APIs.
