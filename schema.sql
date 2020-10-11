@@ -1,43 +1,37 @@
 -- Creating table for eBirds
 CREATE TABLE ebirds (
-	Species_Code VARCHAR (10) NOT NULL,
-	Com_Name VARCHAR (40),
-	Sci_Name VARCHAR (40),
-	Date DATE,
-	Time INT,
-	Latitude INT,
-	Longitude INT,
-	Obs_Valid VARCHAR (10),
-	PRIMARY KEY (Date)
-	);
+	genus VARCHAR,
+	species VARCHAR,
+	country_code VARCHAR (10),
+	locality VARCHAR,
+	state VARCHAR (40),
+	occurence_status VARCHAR,
+	individual_count VARCHAR (10),
+	latitude VARCHAR,
+	longitude VARCHAR,
+	basis_of_record VARCHAR (40),
+	catalog_number VARCHAR (40),
+	date VARCHAR (15) NOT NULL
+);
 	
--- Creating table for temperature
-CREATE TABLE temperature (
-	Latitude INT,
-	Longitude INT,
-	Date DATE,
-	Days_Ext_Low INT,
-	Days_Ext_High INT,
-	Temp_Ext_Min INT,
-	Temp_Ext_Max INT,
-	Precipitation INT,
-	Temp_Avg INT,
-	Temp_Max INT,
-	Temp_Min INT,
-	FOREIGN KEY (Date) REFERENCES ebirds (Date),
-	PRIMARY KEY (Date)
+-- Creating table for air quality
+CREATE TABLE air_quality(
+	state_name VARCHAR (40),
+	county_name VARCHAR (40),
+	state_code VARCHAR (10),
+	county_code VARCHAR (10),
+	date VARCHAR (10),
+	aqi VARCHAR (10),
+	category VARCHAR (40),
+	defining_parameter VARCHAR (40)
 );
 
--- Creating table for air quality
-CREATE TABLE Air_Quality(
-	Latitude INT,
-	Longitude INT,
-	Local_Site_Name VARCHAR (40),
-	Date DATE,
-	State_Code INT,
-	Arithemtic_Mean INT,
-	First_Max_Value INT,
-	Units_of_Measure VARCHAR (40),
-	FOREIGN KEY (Date) REFERENCES ebirds (Date),
-	PRIMARY KEY (Date)
+-- Creating table for counties
+CREATE TABLE counties(
+	latitude INT,
+	longitude INT,
+	county VARCHAR (40),
+	PRIMARY KEY (county)
 );
+
+SELECT * FROM air_quality
