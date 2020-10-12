@@ -1,0 +1,11 @@
+## Machine Learning Description
+
+Description of preliminary data preprocessing:
+- Multiple data sets will be joined using postgres. Unnecessary features will be dropped. Missing data will be removed. Joining will be done along date and location. SQLAlchemy will allow for the data to be used for machine learning models.
+Description of preliminary feature engineering and preliminary feature selection, including their decision-making process:
+- There will be a number of features from the ebird data and the Air quality data. The features vary but will all be relevant to prediction of bird observations. 
+Description of how data was split into training and testing sets:
+- Data will have the X value as the birds observed and the Y will be the remaining features. Testing and training will be performed using sklearn.model_selection.
+Explanation of model choice, including limitations and benefits:
+- Different models have been set up to run the data that has been cleaned. Once Data is ready it will be pulled into the machine learning model and the accuracy scores will show which supervised model will work best. We decided on a supervised machine learning process because we want to classify our results.
+
