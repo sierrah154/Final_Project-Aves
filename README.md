@@ -1,5 +1,4 @@
 # Final_Project-Aves
-<<<<<<< HEAD
 
 Analyzing the relationship in eBird observations and air quality data in California.
 
@@ -9,7 +8,14 @@ Our team will meet at least twice a week on Monday and Wednesday during class ti
 
 ## Roles
 
-Sierra- Square (GitHub Repository)
+Sierra- Square (GitHub Repository, Presentation, Dashboard Blueprint (Tableau)
+
+- GitHub: Maintain repository and ensure all information needed is included, accessable, and functional.
+
+- Presentation Slide Deck: Create draft for presentation in Google Slides. Include information listed on rubric.
+
+- Dashboard: Will be using Tableau for our Dashboard, but have not yet made the mock-up/blueprint.
+
 
 Cristina- Triangle (Machine Learning)
 
@@ -40,7 +46,3 @@ We we will Jupyter Notebooks for writing our code.
 pgAdmin and Postgres will be used for the database.
 
 Any further changes and additions will be listed as they are used.
-
-Stay tuned for project status updates for Segment 2 on October 12, 2020.
-=======
->>>>>>> 0c471606b85494a5e2bdab01a148aed2797d0059
