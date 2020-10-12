@@ -1,4 +1,5 @@
 # Final_Project-Aves
+<<<<<<< HEAD
 
 Analyzing the relationship in eBird observations and air quality data in California.
 
@@ -41,3 +42,5 @@ pgAdmin and Postgres will be used for the database.
 Any further changes and additions will be listed as they are used.
 
 Stay tuned for project status updates for Segment 2 on October 12, 2020.
+=======
+>>>>>>> 0c471606b85494a5e2bdab01a148aed2797d0059
