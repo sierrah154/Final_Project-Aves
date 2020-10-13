@@ -29,23 +29,11 @@ findspark.init()
 from pyspark.sql import SparkSession
 spark = SparkSession.builder.appName("CloudETL").config("spark.driver.extraClassPath","/content/postgresql-42.2.9.jar").getOrCreate()
 
-# Read in air quality data from S3 Buckets
-from pyspark import SparkFiles
-url ="https://caznoe-aves.s3.amazonaws.com/aq_dataframe.csv"
-spark.sparkContext.addFile(url)
-aq_df = spark.read.csv(SparkFiles.get("aq_dataframe.csv"), sep=",", header=True)
-
-# Show DataFrame
-aq_df.show()
-
-# Print the schema
-aq_df.printSchema()
-
 # Import struct fields that we can use
 from pyspark.sql.types import StructField, StringType, IntegerType, StructType
 
 # Creating the list of struct fields
-schema = [StructField("state_name", StringType(), True), StructField("county_name", StringType(), False), StructField("state_code", IntegerType(), True), StructField("county_code", IntegerType(), True), StructField("date", StringType(), True), StructField("aqi", IntegerType(), True), StructField("category", StringType(), True), StructField("defining_parameter", StringType(), True)]
+schema = [StructField("county_name", StringType(), False), StructField("county_code", IntegerType(), True), StructField("date", StringType(), True), StructField("aqi", IntegerType(), True), StructField("category", StringType(), True), StructField("defining_parameter", StringType(), True)]
 schema
 
 # Pass in our AQ fields
@@ -88,11 +76,28 @@ hb_df = spark.read.csv(SparkFiles.get("hb_dataframe.csv"), schema=hb_final, sep=
 # Show DataFrame
 hb_df.printSchema()
 
+# Creating the list of struct fields
+c_schema = [StructField("latitude", IntegerType(), True), StructField("longitude", IntegerType(), False), StructField("county_name", StringType(), True)]
+c_schema
+
+# Pass in our County fields
+c_final = StructType(fields=c_schema)
+c_final
+
+# Read in counties data from S3 Buckets
+from pyspark import SparkFiles
+url ="https://caznoe-aves.s3.amazonaws.com/counties_final.csv"
+spark.sparkContext.addFile(url)
+counties_df = spark.read.csv(SparkFiles.get("counties_final.csv"), schema=c_final, sep=",", header=True)
+
+# Show DataFrame
+counties_df.printSchema()
+
 # Configure settings for RDS
 mode = "append"
-jdbc_url="jdbc:postgresql://aves.cap6velp6xxz.ap-south-1.rds.amazonaws.com:5432/aves"
+jdbc_url="jdbc:postgresql://aves.cos0wnwxlodh.us-east-2.rds.amazonaws.com:5432/aves"
 config = {"user":"caznoe", 
-          "password": "XXXXXXX", 
+          "password": "XXXXXXXX", 
           "driver":"org.postgresql.Driver"}
 
 # Write DataFrame to air quality table in RDS
@@ -100,3 +105,6 @@ aq_df.write.jdbc(url=jdbc_url, table='air_quality', mode=mode, properties=config
 
 # Write DataFrame to ebirds table in RDS
 hb_df.write.jdbc(url=jdbc_url, table='ebirds', mode=mode, properties=config)
+
+# Write DataFrame to counties table in RDS
+counties_df.write.jdbc(url=jdbc_url, table='counties', mode=mode, properties=config)
