@@ -30,7 +30,7 @@ from pyspark.sql import SparkSession
 spark = SparkSession.builder.appName("CloudETL").config("spark.driver.extraClassPath","/content/postgresql-42.2.9.jar").getOrCreate()
 
 # Import struct fields that we can use
-from pyspark.sql.types import StructField, StringType, IntegerType, StructType
+from pyspark.sql.types import StructField, StringType, IntegerType, StructType, LongType, FloatType
 
 # Creating the list of struct fields
 schema = [StructField("county_name", StringType(), False), StructField("county_code", IntegerType(), True), StructField("date", StringType(), True), StructField("aqi", IntegerType(), True), StructField("category", StringType(), True), StructField("defining_parameter", StringType(), True)]
@@ -56,9 +56,9 @@ hb_schema = [StructField("genus", StringType(), True),
              StructField("locality", StringType(), True), 
              StructField("state", StringType(), True), 
              StructField("occurence_status", StringType(), True), 
-             StructField("individual_count", IntegerType(), True), 
-             StructField("latitude", IntegerType(), True),
-             StructField("longitude", IntegerType(), True),
+             StructField("individual_count", LongType(), True), 
+             StructField("latitude", FloatType(), True),
+             StructField("longitude", FloatType(), True),
              StructField("basis_of_record", StringType(), True),
              StructField("catalog_number", StringType(), True),
              StructField("date", StringType(), True)]
@@ -77,7 +77,7 @@ hb_df = spark.read.csv(SparkFiles.get("hb_dataframe.csv"), schema=hb_final, sep=
 hb_df.printSchema()
 
 # Creating the list of struct fields
-c_schema = [StructField("latitude", IntegerType(), True), StructField("longitude", IntegerType(), False), StructField("county_name", StringType(), True)]
+c_schema = [StructField("latitude", FloatType(), True), StructField("longitude", FloatType(), True), StructField("county_name", StringType(), True)]
 c_schema
 
 # Pass in our County fields
@@ -93,12 +93,51 @@ counties_df = spark.read.csv(SparkFiles.get("counties_final.csv"), schema=c_fina
 # Show DataFrame
 counties_df.printSchema()
 
+# Creating the list of struct fields
+w_schema = [StructField("county", StringType(), True), StructField("date", StringType(), True), StructField("high_wind", StringType(), True), StructField("heavy_rain", StringType(), True)]
+w_schema
+
+# Pass in our W fields
+w_final = StructType(fields=w_schema)
+w_final
+
+# Creating the list of struct fields
+cp_schema = [StructField("county", StringType(), True), StructField("year", StringType(), True), StructField("population", StringType(), True)]
+cp_schema
+
+# Pass in our CP fields
+cp_final = StructType(fields=cp_schema)
+cp_final
+
+# Read in weather data from S3 Buckets
+from pyspark import SparkFiles
+url ="https://caznoe-aves.s3.amazonaws.com/wind_rain.csv"
+spark.sparkContext.addFile(url)
+weather_df = spark.read.csv(SparkFiles.get("wind_rain.csv"), schema=w_final, sep=",", header=True)
+
+# Show DataFrame
+weather_df.printSchema()
+
+# Read in county pop data from S3 Buckets
+from pyspark import SparkFiles
+url ="https://caznoe-aves.s3.amazonaws.com/population_county.csv"
+spark.sparkContext.addFile(url)
+county_pop_df = spark.read.csv(SparkFiles.get("population_county.csv"), schema=cp_final, sep=",", header=True)
+
+# Show DataFrame
+county_pop_df.printSchema()
+
+county_pop_df.head()
+
 # Configure settings for RDS
 mode = "append"
 jdbc_url="jdbc:postgresql://aves.cos0wnwxlodh.us-east-2.rds.amazonaws.com:5432/aves"
 config = {"user":"caznoe", 
-          "password": "XXXXXXXX", 
+          "password": "XXXXXXX", 
           "driver":"org.postgresql.Driver"}
+
+# Write DataFrame to weather table in RDS
+weather_df.write.jdbc(url=jdbc_url, table='weather', mode=mode, properties=config)
 
 # Write DataFrame to air quality table in RDS
 aq_df.write.jdbc(url=jdbc_url, table='air_quality', mode=mode, properties=config)
@@ -108,3 +147,6 @@ hb_df.write.jdbc(url=jdbc_url, table='ebirds', mode=mode, properties=config)
 
 # Write DataFrame to counties table in RDS
 counties_df.write.jdbc(url=jdbc_url, table='counties', mode=mode, properties=config)
+
+# Write DataFrame to county population table in RDS
+county_pop_df.write.jdbc(url=jdbc_url, table='county_pop', mode=mode, properties=config)
