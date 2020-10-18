@@ -1,16 +1,34 @@
-For the database for the Aves project, the following steps were taken to set up the database:
-- Gathering csv data files for bird observations from Cornell Lab of Ornithology and obtained through the Global Biodiversity Information Facility. 
-- The air quality data was obtained from the United States Environmental Protection Agency. 
-- Deciding the scope of the data. The initial bird observation in California file was over 47 mil rows. 
+For the database for the Aves project, the following steps were taken to source data and set up the database:
+- Sourcing Data
+-- Gathered csv data files for bird observations from Cornell Lab of Ornithology and obtained through the Global Biodiversity Information Facility. 
+-- Deciding the scope of the data. The initial bird observation in California file was over 47 mil rows. 
   After considering which birds that are native to California and may be more susceptible to air quality factors, 
   I requested datasets for the 14 observed species of hummingbirds in California for the last ten years. This dataset 
   produced over 1.3 million rows. 
- - For the ETL process, I used Jupyter Notebooks, Python and Pandas to merge the data sets and clean the data. 
- - In order to join the sets, an API call was used on the Federal Communication Commission site. County names were called for over 93,000 location points from the ebird dataset.
- - I set up the database in AWS and used PGAdmin to edit tables.
- - In Colabs, I used Pyspark to read in the cleaned data from AWS S3 and then loaded the data into the database on AWS. 
- - Further work in the database will be done using PGAdmin including the tables join based on location and date data.
+ -- The air quality data was taken from pre-generated daily reports from the United States Environmental Protection Agency.
+ -- Weather event data was gathered from the National Oceanic and Atmospheric Administration. 
+ -- County population data was gathered from the California Association of Counties.
+ -- Our bird observation data was based on a geographic location and the remaining data was based on counties in California. In order to join, an API 
+    call on the Federal Communications Commission was done to gather the county name based on location. Over 93,000 locations were run through the API one
+    at a time.
+ - ETL Process
+ -- CSV files from the gathered data were loaded and cleaned using Jupyter Notebook, Python and Pandas. 
+ -- Jupyter notebook was used for the API call on the FCC for the county JSON entry.
+ -- Resulting CSVs exported from Jupyter Notebook were loaded into Amazon S3 for access by the team.
+ -- Google Colab and Pyspark were used to read the csv files into databases and prepared for transfer to the database.
+ 
+ - Database
+ -- Created a ERD with Quick Diagram for the database.
+ -- Created the tables in PGAdmin and tied to a RDS instance in AWS.
+ -- Colab Notebook and Pyspark were used to read the dataframes into RDS and viewed with PGAdmin.
+ -- The tables were joined together based on date and county/location data to tie air quality, weather events, and population to the counties where
+ the hummingbirds were observed.
+ -- Further work in the database was done using PGAdmin.
 
 Data Citations
 Global Biodiversity Information Facility, Citation GBIF.org (10 October 2020) GBIF Occurrence Download https://doi.org/10.15468/dl.2rhbnh
 Global Biodiversity Information Facility, Citation GBIF.org (10 October 2020) GBIF Occurrence Download https://doi.org/10.15468/dl.fsvwgj
+Environmental Protection Agency, Daily Summaries, https://aqs.epa.gov/aqsweb/airdata/download_files.html#Daily
+National Oceanic and Atmospheric Administration, Storm Events Database, https://www.ncdc.noaa.gov/stormevents/choosedates.jsp?statefips=6%2CCALIFORNIA#
+Federal Communication Commission (FCC), Census Block for Developers, https://geo.fcc.gov/api/census/#!/block/get_block_find
+California Association of Counties, Data and Research, https://www.counties.org/data-and-research
