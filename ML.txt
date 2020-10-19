@@ -1,14 +1,16 @@
 Machine Learning Description
 
 Description of preliminary data preprocessing:
-- Multiple data sets will be joined using postgres. Unnecessary features will be dropped. Missing data will be removed. Joining will be done along date and location. SQLAlchemy will allow for the data to be used for machine learning models.
+- Multiple data sets such as the air quality and ebirds will be joined using pgAdmin/postgres. Population data will be merged using pandas. Some Unnecessary features will be dropped. Missing data will be removed. Joining will be done along year and county. SQLAlchemy will allow for the data to be imported used for machine learning models.
 
 Description of preliminary feature engineering and preliminary feature selection, including their decision-making process:
-- There will be a number of features from the ebird data and the Air quality data. The features vary but will all be relevant to prediction of bird observations. 
+- There will be a number of features from the ebird data, popuation data, and the Air quality data. The features include; aqi (air quality index), county, population, year, high wind, heavy rain, season, and defining parameter (green house gas). These features have low correlation showen in correlation matrix but amount of features makes up for the low correlation. Each feature has a conceptual relationship to how the hummingbird species could be effected. Air quality is the main focus but each additional feature plays an important role to the contribution of the air quality.
 
 Description of how data was split into training and testing sets:
-- Data will have the X value as the birds observed and the Y will be the remaining features. Testing and training will be performed using sklearn.model_selection.
+- Data will have the Y value as the bird species and the X will be the remaining features. Testing and training will be performed using sklearn.model_selection.
 
 Explanation of model choice, including limitations and benefits:
-- Different models have been set up to run the data that has been cleaned. Once Data is ready it will be pulled into the machine learning model and the accuracy scores will show which supervised model will work best. We decided on a supervised machine learning process because we want to classify our results.
+- Different models have been set up to run the data that has been cleaned.  Data is then pulled into the machine learning models and the accuracy scores determines  which supervised model will work best. We decided on a supervised machine learning process because we want to classify our results. The decision tree had the highest accuracy score outcome. Because the data contains over one million rows some models took an extremely long time to parse through each row and feature.
 
+Description of current accuracy score:
+- Using the Decision Tree model the accuracy score for the testing was 0.7131 and the accuracy score for the training was 0.7327.
