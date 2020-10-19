@@ -15,7 +15,7 @@ For the database for the Aves project, the following steps were taken to source 
  -- CSV files from the gathered data were loaded and cleaned using Jupyter Notebook, Python and Pandas. 
  -- Jupyter notebook was used for the API call on the FCC for the county JSON entry.
  -- Resulting CSVs exported from Jupyter Notebook were loaded into Amazon S3 for access by the team.
- -- Google Colab and Pyspark were used to read the csv files into databases and prepared for transfer to the database.
+ -- Google Colab and Pyspark were used to read the csv files into DataFrames and prepared for transfer to the database.
  
  - Database
  -- Created a ERD with Quick Diagram for the database.
@@ -24,6 +24,21 @@ For the database for the Aves project, the following steps were taken to source 
  -- The tables were joined together based on date and county/location data to tie air quality, weather events, and population to the counties where
  the hummingbirds were observed.
  -- Further work in the database was done using PGAdmin.
+
+Dependencies
+Python
+  JSON
+  pandas
+  pathlib
+  glob
+  requests
+ 
+ Colab
+  findspark
+  os
+  from pyspark.sql import SparkSession
+  from pyspark.sql.types import StructField, StringType, IntegerType, StructType, LongType, FloatType
+  from pyspark import SparkFiles
 
 Data Citations
 Global Biodiversity Information Facility, Citation GBIF.org (10 October 2020) GBIF Occurrence Download https://doi.org/10.15468/dl.2rhbnh
