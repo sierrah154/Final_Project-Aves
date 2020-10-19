@@ -1,0 +1,87 @@
+.container {
+    display: grid;
+    grid-template-columns: column;
+    align-content: center;
+    justify-content: center;
+    font-family: monospace;
+
+}
+
+.exp {
+    width: 95%;
+    margin:0 auto;
+    height: 50px;
+    margin: 15px;
+    border:none;
+    font-size: 50px;
+}
+
+label {
+    font-size: 20px;
+}
+
+.button {
+    margin-top: 10px;
+    font-size: 24px;
+    box-shadow: rgba(101, 41, 255, 0.15) 0px 10px 20px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+    justify-self: center;
+    white-space: nowrap;
+    background: linear-gradient(104.74deg,green 0%, rgb(65, 150, 4) 100%);
+    border-radius: 30px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    padding: 16px 60px;
+    outline: none;
+    width: 100%;
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1.2) 0s;
+}
+.button:hover {
+    opacity:0.5;
+}
+
+p {
+    color:white;
+    font-size:50px;
+    text-align: center;
+}
+
+.fieldset {
+    border-radius: 30px;
+    padding: 10px;
+    margin: 0px;
+    -webkit-animation: action 1s infinite  alternate;
+    animation: action 1s infinite  alternate;
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1.2) 0s;
+    background-color:green;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+   
+    
+}
+
+@-webkit-keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+@keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+
+
+
+.form {
+    width: 500px;
+    height: 500px;
+    
+}
+
+
