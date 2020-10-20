@@ -24,23 +24,24 @@ def home():
 def predict():
     # Get the data from the POST request.
     if request.method == "POST":
+        print(request.form)
         #data = request.get_json(force=True)
         modelInput = []
-        print(request.form['exp'])
+        # print(request.form['exp'])
         data = float(request.form['AQI'])
         modelInput.append(data)
-        data = request.form['heavy_rain']
-        if data == "yes":
-            newdata = 1
-        elif data == "no":
-            newdata = 0
-        modelInput.append(newdata)
-        data = request.form['high_wind']
-        if data == "yes":
-            newdata = 1
-        elif data == "no":
-            newdata = 0 
-        modelInput.append(newdata)
+        # data = request.form['heavy_rain']
+        # if data == "yes":
+        #     newdata = 1
+        # elif data == "no":
+        #     newdata = 0
+        modelInput.append(0)
+        # data = request.form['high_wind']
+        # if data == "yes":
+        #     newdata = 1
+        # elif data == "no":
+        #     newdata = 0 
+        modelInput.append(0)
         data = float(request.form['Year'])
         modelInput.append(data)
         data = float(request.form['Population'])
@@ -63,13 +64,13 @@ def predict():
         modelInput.append(newdata)
         modelInput.append(1)
         data = request.form['season_num']
-        if data == "spring":
+        if data == "Spring":
             newdata = 1
-        elif data == "autumn":
+        elif data == "Autumn":
             newdata = 2
-        elif data == "winter":
+        elif data == "Winter":
             newdata = 3
-        elif data == "summer":
+        elif data == "Summer":
             newdata = 4
         modelInput.append(newdata)
         
