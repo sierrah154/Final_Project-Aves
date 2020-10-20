@@ -25,22 +25,11 @@ def predict():
     # Get the data from the POST request.
     if request.method == "POST":
         print(request.form)
-        #data = request.get_json(force=True)
         modelInput = []
         # print(request.form['exp'])
         data = float(request.form['AQI'])
         modelInput.append(data)
-        # data = request.form['heavy_rain']
-        # if data == "yes":
-        #     newdata = 1
-        # elif data == "no":
-        #     newdata = 0
         modelInput.append(0)
-        # data = request.form['high_wind']
-        # if data == "yes":
-        #     newdata = 1
-        # elif data == "no":
-        #     newdata = 0 
         modelInput.append(0)
         data = float(request.form['Year'])
         modelInput.append(data)
