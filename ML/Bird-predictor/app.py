@@ -13,7 +13,7 @@ import pickle
 app = Flask(__name__)
 
 # Load the model
-model = pickle.load(open('./model/model.pkl','rb'))
+model = pickle.load(open('./model/LRmodel.pkl','rb'))
 
 @app.route('/')
 def home():

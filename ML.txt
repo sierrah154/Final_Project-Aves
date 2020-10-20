@@ -13,4 +13,4 @@ Explanation of model choice, including limitations and benefits:
 - Different models have been set up to run the data that has been cleaned.  Data is then pulled into the machine learning models and the accuracy scores determines  which supervised model will work best. We decided on a supervised machine learning process because we want to classify our results. The decision tree had the highest accuracy score outcome. Because the data contains over one million rows some models took an extremely long time to parse through each row and feature.
 
 Description of current accuracy score:
-- Using the Decision Tree model the accuracy score for the testing was 0.7131 and the accuracy score for the training was 0.7327.
+- Using the Logistic Regression model the accuracy score for the testing was 0.720 and the accuracy score for the training was 0.719.
