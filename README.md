@@ -45,21 +45,23 @@ ____
 
 Our team will meet at least twice a week on Monday and Wednesday during class time via Zoom. We will likely also have a short meeting via Slack or Zoom each Sunday to ensure all required fields have been met for each Segment Due Date.
 
-## Roles
+## Distribution of Tasks
 
-Sierra- Square (GitHub Repository, Presentation, Dashboard Blueprint (Tableau)
+Sierra- GitHub Repository & Presentation Slides
 
 - GitHub: Maintain repository and ensure all information needed is included, accessable, and functional.
 
-- Presentation Slide Deck: Create draft for presentation in Google Slides. Include information listed on rubric.
+- Presentation Slide Deck: Add content that follows the rubric outline, making sure all requirements are met. Use Google Slides . Include information listed on rubric.
 
-- Dashboard: Will be using Tableau for our Dashboard, but have not yet made the mock-up/blueprint.
 
-Cristina- Triangle (Machine Learning)
+Cristina- Machine Learning
+Type of Machine Learning: Supervised machine learning because we are classifying our results to see which bird species is present given the features.
+Model: After running different models the best accuracy scores came from the Decision Tree model.
 
-Catherine- Circle (DataBase, Dashboard, Website)
+Catherine- Database, Dashboard, Website
+
+- Dashboard: Tableau storyboard/dashboard
 
 ----
 
 <h5><center>Updates coming soon...</center></h5>
-
