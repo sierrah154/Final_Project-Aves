@@ -1,77 +1,78 @@
 ____
 
-# Analysis of Hummingbird Species Distribution in California: Does Air Quality Play a Role?
+# Analysis of Hummingbird Observations in California
+
 ____
 
-Analysis of the relationship between eBird observations, air quality index, weather events and population in California.
+Analysis of the relationship between (eBird) hummingbird observation locations, air quality index, weather events and population in California.
 
 [Presentation](https://docs.google.com/presentation/d/1Qzs5-P3c_Zl_fo20sSHyWCWdhS4qnKJfyNV1qKWUnoU/edit?usp=sharing)
 
-[Dashboard](https://public.tableau.com/views/Aves_dashboard/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link)
+[Dashboard](https://github.com/sierrah154/Final_Project-Aves/tree/main/dashboard)
 
 ____
 
-## Project Background
+## Project Vision
 
-We used 11 years of data pertaining to population, weather events, air quality index, and eBird observations of 10 hummingbird species throughout the state of California. The data was cleaned using Python and the Pandas library. Once the data was cleaned, it was put into a SQL database, using PostgreSQL/pgAdmin.
+[Project Vision](*.png from Presentation folder*)
 
 ## Question(s)
 
-Does air quality impact hummingbird populations in California?
+What drives hummingbirds to be at these observed locations?
 
-Is there a relationship between air quality and hummingbird species distribution and resilience throughout California?
+What environmental variables may play a role?
 
-Does poor air quality have an impact on resources hummingbirds rely on for survival?
+Is there a relationship between air quality and hummingbird observations, specifically in California?
 
-Do microclimates throughout California impact the fitness of hummingbird habitats at different times of the year?
+Do weather events impact hummingbird observations?
+
+Are there non-environmental variables that play a role?
 
 ____
 
 ## Resources and Tools
 
+[Project Pipeline](https://github.com/sierrah154/Final_Project-Aves/blob/main/Presentation/Project_Pipeline.png)
+
 eBird and Air Quality data was obtained from APIs.
 
 California weather data was obtained from a CSV.
 
-Jupyter Notebook was used for writing code.
+Jupyter Notebook was used for cleaning datasets.
 
-pgAdmin and PostgreSQL were used for creating the database.
+pgAdmin and PostgreSQL were used for combining the datasets, based on ERD.
 
-Any further changes and additions will be listed as they are used.
+… _*UPDATE WITH THE REST*_
 
 ____
 
 ## Communication
 
-Our team will meet at least twice a week on Monday and Wednesday during class time via Zoom. We will likely also have a short meeting via Slack or Zoom each Sunday to ensure all required fields have been met for each Segment Due Date.
+Our team met on Monday and Wednesday each week via Zoom. We had additional Zoom meetings as needed throughout the week, depending on discussions needed. Lastly, we had a short meeting via Slack or Zoom each Sunday to ensure all required fields had been met for each Segment Due Date.
 
 ## Distribution of Tasks
 
-**Sierra**- GitHub Repository & Presentation Slides
+Sierra- GitHub Repository & Presentation Slides
 
 - GitHub: Maintain repository and ensure all information needed is included, accessable, and functional.
 
-- Presentation Slide Deck: Add content that follows the rubric outline, making sure all requirements are met. Use Google Slides . Include information listed on rubric.
+- Presentation Slide Deck: Add content that follows the rubric outline, making sure all requirements are met. Use Google Slides. Include information listed on rubric.
 
 
-**Cristina**- Machine Learning, Interactive Observation Predictor
+Cristina- Machine Learning, Interactive Element - Hummingbird Predictor
 
-- Type of Machine Learning:
-  - Supervised machine learning because we are classifying our results to see which bird species is present given the features.
+Type of Machine Learning:
 
-- Model:
-  - After running different models the best accuracy scores came from the Decision Tree model.
+Supervised machine learning because we are classifying our results to see which bird species is present given the features.
 
-**Catherine**- Database, Dashboard
+Model: After running different models the best accuracy scores came from the Decision Tree model.
+
+Catherine- Database, Dashboard
 
 Database:
 
--
+![Data Pipeline](https://github.com/sierrah154/Final_Project-Aves/blob/main/Presentation/Project_Pipeline.png)
 
 Dashboard:
 
-- Tableau dashboard
-
-----
-
-<h5><center>Updates coming soon...</center></h5>
+![Tableau dashboard](https://github.com/sierrah154/Final_Project-Aves/blob/main/dashboard/Aves_dash.png)
