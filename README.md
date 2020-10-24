@@ -7,7 +7,7 @@ Analysis of the relationship between eBird observations, air quality index, weat
 
 [Presentation](https://docs.google.com/presentation/d/1Qzs5-P3c_Zl_fo20sSHyWCWdhS4qnKJfyNV1qKWUnoU/edit?usp=sharing)
 
-[Dashboard/Website](https://public.tableau.com/views/Aves_dashboard/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link)
+[Dashboard](https://public.tableau.com/views/Aves_dashboard/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link)
 
 ____
 
@@ -47,20 +47,30 @@ Our team will meet at least twice a week on Monday and Wednesday during class ti
 
 ## Distribution of Tasks
 
-Sierra- GitHub Repository & Presentation Slides
+**Sierra**- GitHub Repository & Presentation Slides
 
 - GitHub: Maintain repository and ensure all information needed is included, accessable, and functional.
 
 - Presentation Slide Deck: Add content that follows the rubric outline, making sure all requirements are met. Use Google Slides . Include information listed on rubric.
 
 
-Cristina- Machine Learning
-Type of Machine Learning: Supervised machine learning because we are classifying our results to see which bird species is present given the features.
-Model: After running different models the best accuracy scores came from the Decision Tree model.
+**Cristina**- Machine Learning, Interactive Observation Predictor
 
-Catherine- Database, Dashboard, Website
+- Type of Machine Learning:
+  - Supervised machine learning because we are classifying our results to see which bird species is present given the features.
 
-- Dashboard: Tableau storyboard/dashboard
+- Model:
+  - After running different models the best accuracy scores came from the Decision Tree model.
+
+**Catherine**- Database, Dashboard
+
+Database:
+
+-
+
+Dashboard:
+
+- Tableau dashboard
 
 ----
 
