@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hummingbird Detector</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+    <body>
+
+	<header>
+		<div class="container">
+		    <h2>HUMMINGBIRD PREDICTOR</h2>
+	    </div>
+	</header>
+        <div class="container">
+            <img src="https://media.giphy.com/media/3o6ZtlQMOKDFPserAI/giphy.gif"/>
+
+            <form action="/predict" method="POST" class="form">
+                <div class="fieldset">
+                    <label>Enter Air Quality Index (0-250)</label>
+                    <input class="exp" name="AQI"/>
+                    <label>Enter Year (2009-2019)</label>
+                    <input class="exp" name="Year"/>
+                    <label>Enter Population</label>
+                    <input class="exp" name="Population"/>
+                    <label>Enter California County</label>
+                    <input class="exp" name="counties_num"/>
+                    <label>Enter Season (Autumn, Winter, Spring, Summer)</label>
+                    <input class="exp" name="season_num"/>
+                </div>
+                <input type="submit" class="button" value="predict">
+            </form>
+        </div>
+    </body>
+</html>

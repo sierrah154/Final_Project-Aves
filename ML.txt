@@ -1,14 +1,20 @@
-Machine Learning Description
+✓ Description of data preprocessing
+Data was imported into Jupyter Notebook using SQLAlchemy from Postgres database. Once imported we used Python/Pandas to merge a population of counties from 2009-2019. After the data was fully merged any irrelevant features were dropped. Checked the data for any null values. Converted “none” to zeros and numeric. Using the label encoder function we converted the rest of the data into numeric features.
 
-Description of preliminary data preprocessing:
-- Multiple data sets will be joined using postgres. Unnecessary features will be dropped. Missing data will be removed. Joining will be done along date and location. SQLAlchemy will allow for the data to be used for machine learning models.
+✓ Description of feature engineering and the feature selection, including the team's decision-making process.
+Feature selection was made by deciding if features were related to the questions we wanted to answer. Miscellaneous variables were dropped in the initial cleaning of datasets using SQL. Features that were synonymous were also dropped such as “category” which classified the AQI so we decided to just keep AQI. Using matplotlib we created a correlation matrix to compare the features. We found that the features were not heavily correlated so no more features need to be dropped.
 
-Description of preliminary feature engineering and preliminary feature selection, including their decision-making process:
-- There will be a number of features from the ebird data and the Air quality data. The features vary but will all be relevant to prediction of bird observations. 
+✓ Description of how data was split into training and testing sets
+Data will have the Y value as the bird species and the X will be the remaining features. Testing and training will be performed using sklearn.model_selection.
 
-Description of how data was split into training and testing sets:
-- Data will have the X value as the birds observed and the Y will be the remaining features. Testing and training will be performed using sklearn.model_selection.
+✓ Explanation of model choice, including limitations and benefits
+Decided on a supervised machine learning model because we wanted to classify our categorical data so that our model is able to predict a bird species based on an input of features. We used a Logistic Regression model to perform the prediction because the outcome of the training and testing accuracy scores were high. Logistic Regression is a great model to use when classifying categorical data. 
 
-Explanation of model choice, including limitations and benefits:
-- Different models have been set up to run the data that has been cleaned. Once Data is ready it will be pulled into the machine learning model and the accuracy scores will show which supervised model will work best. We decided on a supervised machine learning process because we want to classify our results.
+✓ Explanation of changes in model choice (if changes occurred between the Segment 2 and Segment 3 deliverables)
+Originally we had decided on using the Decision Tree model because it’s accuracy score was the highest but because this model begins to over fit we decided to use Logistic Regression model which had an accuracy score that was very similar. 
 
+✓ Description of how model was trained (or retrained, if they are using an existing model)
+Trained using sklearn. Scaled using Standard Scaler prior to training. Y value is bird species and X value is the remaining 8 features. 
+
+✓ Description and explanation of model’s confusion matrix, including final accuracy score
+According to the model’s confusion matrix which can be found in the “Model-notebook.ipynb” the scores show that the species with a higher amount of observations have the higher scores. The model is able to predict various species but because certain species are more common those will be favored in the prediction since they are the most likely bird to be observed. The overall accuracy score of the Logistic regression model was testing: 0.720 and the accuracy score for the training: 0.719. For future analysis it would be interesting to see what the top observed hummingbirds would predict or the opposite and see how the rarer species compare. 
