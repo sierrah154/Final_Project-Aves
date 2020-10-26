@@ -1,0 +1,15 @@
+#Below are the programs and packages required for this project.
+
+Python 3.7
+  JSON
+  pandas
+  pathlib
+  glob
+  requests
+
+Google Colab
+  findspark
+  os
+  from pyspark.sql import SparkSession
+  from pyspark.sql.types import StructField, StringType, IntegerType, StructType, LongType, FloatType
+  from pyspark import SparkFiles
